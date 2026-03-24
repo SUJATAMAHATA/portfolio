@@ -14,7 +14,10 @@
       crossorigin="anonymous"
     ></script> -->
     <script src="https://kit.fontawesome.com/a2e0a2a7e9.js"
-      crossorigin="anonymous">
+      crossorigin="anonymous"></script>
+ 
+  </head>
+  <script>
   function formatExperience(startDate) {
     const start = new Date(startDate);
     const now = new Date();
@@ -45,11 +48,19 @@
     return result.trim() || "0 months";
   }
 
-  // Set experience dynamically
-  document.getElementById("experienceText").innerText =
-    formatExperience("2024-07-15") + " Experience";
+  // Run after DOM loads
+  document.addEventListener("DOMContentLoaded", function () {
+    const expText = formatExperience("2024-07-15");
+
+    document.getElementById("experienceText").innerText =
+      expText + " Experience";
+
+    document.getElementById("expStat").innerText = expText;
+
+    document.getElementById("year").innerText =
+      new Date().getFullYear();
+  });
 </script>
-  </head>
   <body>
     <nav>
       <div class="container">
